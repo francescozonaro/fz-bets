@@ -13,6 +13,17 @@ function App() {
       bets.forEach((bet) => {
         var row = "<tr>";
         for (var key in bet) {
+
+          if(key == "Date"){
+            bet[key] = bet[key].substring(0,10)
+          }
+
+          if(key == "Result"){
+            if(bet[key] == ''){
+              bet[key] = "⌛"
+            }
+          }
+
           row += "<td>" + bet[key] + "</td>";
         }
         row += "</tr>";
@@ -37,6 +48,19 @@ function App() {
         bets.forEach((bet) => {
           var row = "<tr>";
           for (var key in bet) {
+
+            if(key == "Date"){
+              bet[key] = bet[key].substring(0,10)
+            }
+
+            if(key == "Result"){
+              if(bet[key] == true){
+                bet[key] = "✔️"
+              } else {
+                bet[key] = "❌"
+              }
+            }
+
             row += "<td>" + bet[key] + "</td>";
           }
           row += "</tr>";
@@ -76,15 +100,12 @@ function App() {
           <div id="bets-container-live"></div>
         </div>
 
+        <button type="button" id="collapse-past-bets" onClick={() => toggleCompletedBets()}>
+          Show older bets
+        </button>
+
         <div id="table-wrapper">
-          <button type="button" id="collapse-past-bets" onClick={() => toggleCompletedBets()
-        }>
-            Show older bets
-          </button>
-          <div
-            id="bets-container-completed"
-            style={{ visibility: "hidden" }}
-          ></div>
+          <div id="bets-container-completed" style={{ visibility: "hidden" }}></div>
         </div>
       </div>
     </div>
