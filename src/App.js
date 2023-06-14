@@ -5,85 +5,85 @@ import React, { useEffect } from "react";
 
 function App() {
 
-  // useEffect(() => {
-  //   axios.get("https://e3exeuwqd3fdztghs3u6x4wtsi0qyqen.lambda-url.us-east-1.on.aws/api/getLiveBets").then(function (res) {
-  //     const bets = res.data;
-  //     var rows = "";
+  useEffect(() => {
+    axios.get("https://e3exeuwqd3fdztghs3u6x4wtsi0qyqen.lambda-url.us-east-1.on.aws/api/getLiveBets").then(function (res) {
+      const bets = res.data;
+      var rows = "";
 
-  //     bets.forEach((bet) => {
-  //       var row = "<tr>";
-  //       for (var key in bet) {
+      bets.forEach((bet) => {
+        var row = "<tr>";
+        for (var key in bet) {
 
-  //         if(key == "Date"){
-  //           bet[key] = bet[key].substring(0,10)
-  //         }
+          if(key == "Date"){
+            bet[key] = bet[key].substring(0,10)
+          }
 
-  //         if(key == "Result"){
-  //           if(bet[key] == ''){
-  //             bet[key] = "⌛"
-  //           }
-  //         }
+          if(key == "Result"){
+            if(bet[key] == ''){
+              bet[key] = "⌛"
+            }
+          }
 
-  //         row += "<td>" + bet[key] + "</td>";
-  //       }
-  //       row += "</tr>";
-  //       rows += row;
-  //     });
+          row += "<td>" + bet[key] + "</td>";
+        }
+        row += "</tr>";
+        rows += row;
+      });
 
 
-  //     if(rows != ""){
-  //       var table =
-  //       "<table> <tr><th>Date</th><th>League</th><th>Home</th><th>Away</th><th>Type</th><th>Quote</th><th>Bet</th><th>Potential Return</th><th>xQuote</th><th>Value</th><th>Quote %</th><th>Result</th></tr>" +
-  //       rows +
-  //       "</table>";
+      if(rows != ""){
+        var table =
+        "<table> <tr><th>Date</th><th>League</th><th>Home</th><th>Away</th><th>Type</th><th>Quote</th><th>Bet</th><th>Potential Return</th><th>xQuote</th><th>Value</th><th>Quote %</th><th>Result</th></tr>" +
+        rows +
+        "</table>";
 
-  //       const betsContainer = document.getElementById("bets-container-live");
-  //       betsContainer.innerHTML = table;
-  //     }
+        const betsContainer = document.getElementById("bets-container-live");
+        betsContainer.innerHTML = table;
+      }
 
-  //   });
+    });
 
-  //   axios
-  //     .get("https://e3exeuwqd3fdztghs3u6x4wtsi0qyqen.lambda-url.us-east-1.on.aws/api/getCompletedBets")
-  //     .then(function (res) {
-  //       const bets = res.data;
-  //       var rows = "";
+    axios
+      .get("https://e3exeuwqd3fdztghs3u6x4wtsi0qyqen.lambda-url.us-east-1.on.aws/api/getCompletedBets")
+      .then(function (res) {
+        const bets = res.data;
+        var rows = "";
 
-  //       bets.forEach((bet) => {
-  //         var row = "<tr>";
-  //         for (var key in bet) {
+        bets.forEach((bet) => {
+          var row = "<tr>";
+          for (var key in bet) {
 
-  //           if(key == "Date"){
-  //             bet[key] = bet[key].substring(0,10)
-  //           }
+            if(key == "Date"){
+              bet[key] = bet[key].substring(0,10)
+            }
 
-  //           if(key == "Result"){
-  //             if(bet[key] == true){
-  //               bet[key] = "✔️"
-  //             } else {
-  //               bet[key] = "❌"
-  //             }
-  //           }
+            if(key == "Result"){
+              if(bet[key] == true){
+                bet[key] = "✔️"
+              } else {
+                bet[key] = "❌"
+              }
+            }
 
-  //           row += "<td>" + bet[key] + "</td>";
-  //         }
-  //         row += "</tr>";
-  //         rows += row;
-  //       });
+            row += "<td>" + bet[key] + "</td>";
+          }
+          row += "</tr>";
+          rows += row;
+        });
 
-  //       if(rows != ""){        
-  //         var table =
-  //           "<table> <tr><th>Date</th><th>League</th><th>Home</th><th>Away</th><th>Type</th><th>Quote</th><th>Bet</th><th>Potential Return</th><th>xQuote</th><th>Value</th><th>Quote %</th><th>Result</th></tr>" +
-  //           rows +
-  //           "</table>";
+        if(rows != ""){        
+          var table =
+            "<table> <tr><th>Date</th><th>League</th><th>Home</th><th>Away</th><th>Type</th><th>Quote</th><th>Bet</th><th>Potential Return</th><th>xQuote</th><th>Value</th><th>Quote %</th><th>Result</th></tr>" +
+            rows +
+            "</table>";
 
-  //         const betsContainer = document.getElementById(
-  //           "bets-container-completed"
-  //         );
-  //         betsContainer.innerHTML = table;
-  //       }
-  //     });
-  // }, []);
+          const betsContainer = document.getElementById(
+            "bets-container-completed"
+          );
+          betsContainer.innerHTML = table;
+        }
+      });
+  }, []);
 
   function toggleCompletedBets() {
     var content = document.getElementById("bets-container-completed");
