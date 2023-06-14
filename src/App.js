@@ -118,7 +118,7 @@ function App() {
 
           <br></br>
 
-            <img src = "../img/calibration.svg" style={{width: '90%', maxWidth: '600px', margin: 'auto'}}/>
+            <img src = "/img/calibration.svg" style={{width: '100%', maxWidth: '600px', margin: 'auto'}}/>
 
           <br></br>
 
