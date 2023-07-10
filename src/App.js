@@ -95,6 +95,14 @@ function App() {
     }
   }
 
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    var content = document.getElementById("bets-container-completed");
+    if (!(content.style.display === "none")) {
+      toggleCompletedBets();
+    }
+  }
+
   return (
     <div className="App">
       <div className="header">
@@ -255,6 +263,32 @@ function App() {
             money, we won't bet (and won't get a profit) even if the bookie gave
             us a favourable 2.35 or even 2.45 quote for that specific match.
           </div>
+
+          <br></br>
+
+          <div className="intro-text">
+            Below are displayed all the bets the algorithm would have placed
+            during the 22-23 season in the top 5 leagues, with the following
+            result:
+            <center style={{ marginTop: "15px" }}>
+              <code>
+                Money spent: 1352.0$ on 835 matches. Money won: 1999.27$,
+                47.875% ROI.
+              </code>
+            </center>
+            <br></br>
+            Value bets were calculated using Bet365 as the betting bookie. Even
+            if historical data was used, only data that would have been
+            available prior to the considered match was, of course, used. It's
+            important to notice the algorithm considered 45% of the total number
+            of matches in a season (835 out of 1826) as worth betting on. The
+            reason why this happened is twofold: the Over 2.5 result is (more or
+            less) as frequent as the Under 2.5 result, meaning 50% of matches
+            will actually end with 3 ore more goals; furthermore, the
+            configuration used favours chasing the profit rather than cutting
+            the losses, therefore the algorithm tends to bet (less money) even
+            when the condition are not entirely favourable.
+          </div>
         </div>
 
         <div id="table-wrapper">
@@ -273,9 +307,31 @@ function App() {
           <div id="bets-container-completed" style={{ display: "none" }}></div>
         </div>
 
-        <div id="recap">
-          You spent 1352.0 $ on 835 matches. You won 1999.27 $, netting a
-          47.875% ROI.
+        <div id="outro-wrapper">
+          <div className="outro-text">
+            First results are encouraging and the algorithm will be further
+            tested during the 23-24 season.
+          </div>
+
+          <div className="outro-links">
+            <a
+              href="https://francescozonaro.github.io/"
+              target="_blank"
+              style={{ display: "inline-block", width: "50%" }}
+            >
+              [Portfolio]
+            </a>
+            <a
+              href="#"
+              style={{
+                display: "inline-block",
+                width: "50%",
+              }}
+              onClick={() => scrollToTop()}
+            >
+              [Back to the top]
+            </a>
+          </div>
         </div>
       </div>
     </div>

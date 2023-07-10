@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap");
 
 .App {
-    position: relative;
-    font-family: 'Raleway', sans-serif;
-    margin: auto;
-    width: 80%;
-    text-align: center;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  margin: auto;
+  width: 80%;
+  text-align: center;
 }
 
 .title {
   margin-top: 30px;
   font-size: 3rem;
   line-height: 1.2;
-  letter-spacing: -.1rem;
+  letter-spacing: -0.1rem;
   font-weight: 300;
 }
 
-.title strong{
+.title strong {
   font-weight: 900;
 }
 
@@ -25,7 +25,8 @@
   border-bottom: 1px solid black;
 }
 
-.button, button {
+.button,
+button {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
@@ -34,7 +35,7 @@
   font-size: 11px;
   font-weight: 600;
   line-height: 38px;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
@@ -45,7 +46,7 @@
   box-sizing: border-box;
 }
 
-#table-wrapper table{
+#table-wrapper table {
   margin-top: 50px;
   margin-bottom: 50px;
   margin-left: auto;
@@ -53,7 +54,7 @@
   min-width: 1200px;
 }
 
-table td{
+table td {
   white-space: nowrap;
   text-align: center;
 }
@@ -65,12 +66,30 @@ table td{
   margin-right: auto;
 }
 
-#introduction-wrapper .intro-text{
+#introduction-wrapper .intro-text {
   line-height: 25px;
   text-align: justify;
 }
 
-#introduction-wrapper code{
+#outro-wrapper {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#outro-wrapper .outro-text {
+  line-height: 25px;
+  text-align: justify;
+}
+
+#outro-wrapper .outro-links {
+  margin-top: 50px;
+}
+
+#introduction-wrapper code {
   font-size: 15px;
   background-color: rgb(238, 232, 214);
+}
+
+a {
+  color: #1eaedb;
 }
